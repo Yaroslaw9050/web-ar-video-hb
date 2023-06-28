@@ -1,3 +1,9 @@
+let tempTarget = null;
+let myVideo = null;
+let myVideoEntity = null;
+
+let isFinde = false;
+
 document.addEventListener("DOMContentLoaded", function() {
 	const sceneEl = document.querySelector('a-scene');
 	let arSystem;
@@ -21,14 +27,48 @@ document.addEventListener("DOMContentLoaded", function() {
 	sceneEl.addEventListener("arError", (event) => {
 	});
 	exampleTarget.addEventListener("targetFound", event => {
+      console.log(event);
 	  console.log("target found");
       myVideo.play();
+      isFinde = true;
 	});
 	exampleTarget.addEventListener("targetLost", event => {
 	  console.log("target lost");
       myVideo.pause();
+      isFinde = false;
 	});
     examplePlane.addEventListener("click", event => {
 	  console.log("plane click");
 	});
       });
+
+
+      AFRAME.registerComponent('target', {
+        init: function () {
+            // console.log("Init");
+            // tempTarget = document.querySelector('#example-target').object3D;
+            // myVideoEntity = document.querySelector('#example-plane');
+            // myVideoEntity.setAttribute('visible', true);
+            // myVideo = myVideoEntity.object3D;
+        },
+
+        tick: function (time, timeDelta) {
+
+            // if(isFinde)
+            // {
+            //     let worldPosition = new THREE.Vector3();
+            //     tempTarget.getWorldPosition(worldPosition);
+            //     console.log("Target");
+            //     console.log(worldPosition);
+    
+            //     myVideo.position.copy(worldPosition);
+    
+            //     myVideoEntity.setAttribute('position', myVideo.position);
+            //     console.log("Sub");
+            //     console.log(myVideoEntity.getAttribute('position'));
+            //     // Do something on every scene tick or frame.
+            // }
+
+          }
+      });
+     
