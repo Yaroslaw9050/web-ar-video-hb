@@ -4,7 +4,11 @@ let myVideoEntity = null;
 
 let isFinde = false;
 
+const content = document.querySelector('.content');
+content.style.display = "none";
+
 document.addEventListener("DOMContentLoaded", function() {
+  content.style.display = "block";
 	const sceneEl = document.querySelector('a-scene');
 	let arSystem;
 	sceneEl.addEventListener('loaded', function () {
