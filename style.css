@@ -19,6 +19,7 @@ html, body {
     text-align: center;
   }
   #example-start-button {
+    margin-left: -5px;
     background-color: black;
     height: 60px;
     width: 150px;
